@@ -4,3 +4,7 @@ before_script:
 compile:
   script:
     - g++ -o termgametest main.cpp init.cpp input.cpp renderer.cpp wait.cpp -lncurses -std=gnu++14
+
+run:
+  script:
+    - termgametest
