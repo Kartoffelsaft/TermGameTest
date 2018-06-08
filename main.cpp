@@ -3,16 +3,13 @@
 
 int main()
 {
-	ginit();
-	cinit();
+	init();
 
-	while(beginshutdown() == false)
+	while(running())
 	{
-		inputhandler();
+		inputhandler(true);
 		renderer();
 	}
-
-//	
 
 	renderershutdown();
 	return 0;

@@ -2,17 +2,18 @@
 
 namespace settings
 {
-	const int calcrate{60}; 		//how many times per second gameloop happens while idle
+	const int idlerate{60}; 		//how many times per second gameloop happens while idle
 }
 
 /* INITIALIZATION AND SHUTDOWN */
-void ginit();				//initializes the graphics
-void cinit();				//initializes input settings
-bool beginshutdown();
+void init();						//initializes input settings
+bool running();
+void shutdown();
 
 /* INPUT HANDLING */
 int getinput();
-void inputhandler();
+void inputhandler(bool waitonblank);//the waitonblank variable is to allow control 
+									//over whether no input will halt the game for a short time
 
 /* RENDER HANDLING */
 void renderer();

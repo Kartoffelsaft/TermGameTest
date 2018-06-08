@@ -4,5 +4,5 @@
 
 void dowaittick()
 {
-	std::this_thread::sleep_for(std::chrono::milliseconds(1000/settings::calcrate));
+	std::this_thread::sleep_for(std::chrono::milliseconds(1000/settings::idlerate));
 }

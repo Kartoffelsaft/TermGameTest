@@ -7,7 +7,7 @@ void renderer()
 	int width;
 	getmaxyx(stdscr, height, width);
 
-	mvwaddch(stdscr, 4, 6, 97);
+	mvwaddch(stdscr, 4, 6, 'a');
 
 	wrefresh(stdscr);
 }
