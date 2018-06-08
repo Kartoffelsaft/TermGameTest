@@ -1,0 +1,6 @@
+before_script:
+  - apt update &&  apt install -y libncurses5 g++
+
+compile:
+  script:
+    - g++ -o termgametest main.cpp init.cpp input.cpp renderer.cpp wait.cpp -lncurses -std=gnu++14
