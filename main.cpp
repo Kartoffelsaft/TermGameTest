@@ -7,8 +7,7 @@ int main()
 
 	while(running())
 	{
-		inputhandler(true);
-		renderer();
+		doplayer();
 	}
 
 	renderershutdown();

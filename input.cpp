@@ -14,7 +14,7 @@ int getinput()
 	}
 }
 
-void inputhandler(bool waitonblank)
+int inputhandler(bool waitonblank)
 {
 	int inp{getinput()};
 
@@ -22,13 +22,12 @@ void inputhandler(bool waitonblank)
 	{
 		dowaittick();
 	}
-	else
+	else if(inp == 27)
 	{
 		shutdown();
-
-		switch(inp)
-		{
-			
-		}
+	}
+	else
+	{
+		return inp;
 	}
 }

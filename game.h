@@ -1,8 +1,9 @@
-#pragma gamefuncandconsts
+#pragma once
+
 
 namespace settings
 {
-	const int idlerate{60}; 		//how many times per second gameloop happens while idle
+	const int idlerate{100}; 		//how many times per second gameloop happens while idle
 }
 
 /* INITIALIZATION AND SHUTDOWN */
@@ -12,11 +13,11 @@ void shutdown();
 
 /* INPUT HANDLING */
 int getinput();
-void inputhandler(bool waitonblank);//the waitonblank variable is to allow control 
-									//over whether no input will halt the game for a short time
+int inputhandler(bool waitonblank);//the waitonblank variable is to allow control over whether no input will halt the game for a short time
+void doplayer();
 
 /* RENDER HANDLING */
-void renderer();
+void renderer(int, int, char);
 void renderershutdown();
 
 /* MISC FUNCTIONS */
