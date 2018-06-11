@@ -5,28 +5,28 @@ static int playery{0};
 
 void doplayer()
 {
-    int inp{inputhandler(true)};
+  int inp{inputhandler(true)};
 
-    if(inp != 0)
+  if(inp != 0)
+  {
+    // renderer(playerx, playery, 32); //clears current player position to prevent duplicates
+
+    if(inp == 'w')
     {
-        // renderer(playerx, playery, 32); //clears current player position to prevent duplicates
-
-        if(inp == 'w')
-        {
-            playery -= 1;
-        }
-        if(inp == 's')
-        {
-            playery += 1;
-        }
-        if(inp == 'a')
-        {
-            playerx -= 1;
-        }
-        if(inp == 'd')
-        {
-            playerx += 1;
-        }
+        playery -= 1;
     }
-    addobject(playerx, playery, 'X');
+    if(inp == 's')
+    {
+        playery += 1;
+    }
+    if(inp == 'a')
+    {
+        playerx -= 1;
+    }
+    if(inp == 'd')
+    {
+        playerx += 1;
+    }
+  }
+  addobject(playerx, playery, 'X');
 }
