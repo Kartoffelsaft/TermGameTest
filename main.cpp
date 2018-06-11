@@ -7,7 +7,12 @@ int main()
 
 	while(running())
 	{
+		objectspace();
+
+		dofloor();
 		doplayer();
+
+		render();
 	}
 
 	renderershutdown();

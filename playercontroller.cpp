@@ -9,7 +9,7 @@ void doplayer()
 
     if(inp != 0)
     {
-        renderer(playerx, playery, 32); //clears current player position to prevent duplicates
+        // renderer(playerx, playery, 32); //clears current player position to prevent duplicates
 
         if(inp == 'w')
         {
@@ -28,5 +28,5 @@ void doplayer()
             playerx += 1;
         }
     }
-    renderer(playerx, playery, 'X');
+    addobject(playerx, playery, 'X');
 }
