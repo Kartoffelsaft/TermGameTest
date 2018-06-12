@@ -9,6 +9,7 @@ int main()
 		objectspace();
 
 		dofloor();
+		docities();
 		doplayer();
 
 		render();

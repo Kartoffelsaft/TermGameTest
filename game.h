@@ -6,6 +6,10 @@ namespace settings
 	const int idlerate{100}; 		//how many times per second gameloop happens while idle
 }
 
+namespace consts
+{
+	const unsigned int maxnumb{unsigned(0)-unsigned(1)};	// for when an unrealistically large number is needed
+}
 
 /* INITIALIZATION AND SHUTDOWN */
 
@@ -34,9 +38,12 @@ int sizey();
 
 void doplayer();
 void dofloor();
-void objectspace(); 
+void docities();
+void objectspace();
 void addobject(int, int, char);
 char fetchobj(int, int);
+int getcityid(int, int);
+void createcity(int, int);
 
 
 /* MISC FUNCTIONS */

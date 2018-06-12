@@ -27,6 +27,10 @@ void doplayer()
     {
       playerx += 1;
     }
+    if(inp == 'b')
+    {
+      createcity(playerx, playery);
+    }
   }
   addobject(playerx, playery, 'X');
 }
