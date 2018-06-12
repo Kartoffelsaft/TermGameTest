@@ -13,19 +13,19 @@ void doplayer()
 
     if(inp == 'w')
     {
-        playery -= 1;
+      playery -= 1;
     }
     if(inp == 's')
     {
-        playery += 1;
+      playery += 1;
     }
     if(inp == 'a')
     {
-        playerx -= 1;
+      playerx -= 1;
     }
     if(inp == 'd')
     {
-        playerx += 1;
+      playerx += 1;
     }
   }
   addobject(playerx, playery, 'X');
