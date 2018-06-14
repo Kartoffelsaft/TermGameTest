@@ -1,17 +1,6 @@
 #include <ncurses.h>
 #include "./game.h"
 
-int sizex()
-{
-	return getmaxx(stdscr);
-}
-
-int sizey()
-{
-	return getmaxy(stdscr);
-}
-
-
 void render()
 {
 	int sx{sizex()};
@@ -28,15 +17,13 @@ void render()
 	wrefresh(stdscr);
 }
 
-// void renderer()
-// {
-// 	mvwaddch(stdscr, y, x, character);
-// }
-//
-// void rendererfinish()
-// {
-// 	wrefresh(stdscr);
-// }
+void addtext(int startx, int starty, string text)
+{
+	for(int stringlocation; stringlocation < text.length(); stringlocation++)
+	{
+		addobject(stringlocation+startx, starty, text.at(stringlocation));
+	}
+}
 
 void renderershutdown()
 {

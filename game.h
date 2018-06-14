@@ -1,9 +1,11 @@
 #pragma once
+#include <string>
+using std::string;
 
 
 namespace settings
 {
-	const int idlerate{100}; 		//how many times per second gameloop happens while idle
+	const double idlerate{100}; 		//how many times per second gameloop happens while idle
 }
 
 namespace consts
@@ -11,17 +13,22 @@ namespace consts
 	const unsigned int maxnumb{unsigned(0)-unsigned(1)};	// for when an unrealistically large number is needed
 }
 
-/* INITIALIZATION AND SHUTDOWN */
+/* INITIALIZATION, SHUTDOWN, AND GAMESTATE */
 
 void init();						//initializes input settings
 bool running();
 void shutdown();
+bool inworld();
+void gotoworld();
+bool inresources();
+void gotoresources();
 
 
 /* INPUT HANDLING */
 
 int getinput();
-int inputhandler(bool waitonblank);//the waitonblank variable is to allow control over whether no input will halt the game for a short time
+int inputhandler();
+void doplayerinput();
 
 
 /* RENDER HANDLING */
@@ -32,6 +39,7 @@ void renderershutdown();
 // void rendererfinish();
 int sizex();
 int sizey();
+void addtext(int, int, string);
 
 
 /* GAME OBJECT HANDLING */
@@ -39,13 +47,25 @@ int sizey();
 void doplayer();
 void dofloor();
 void docities();
+void doresourcemenus();
 void objectspace();
 void addobject(int, int, char);
 char fetchobj(int, int);
 int getcityid(int, int);
+void citydata(int, int);
 void createcity(int, int);
+
+/* RESOURCE CONTROL */
+
+int cityincome();
+
+int getincome();
+void addincome();
 
 
 /* MISC FUNCTIONS */
 
 void dowaittick();			//to avoid wasting processing power by waiting when nothing is happening
+void starttimer();
+void endtimer();
+void nextturn();

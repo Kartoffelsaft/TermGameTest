@@ -6,11 +6,24 @@ int main()
 
 	while(running())
 	{
+		starttimer();
 		objectspace();
 
-		dofloor();
-		docities();
-		doplayer();
+		doplayerinput();
+
+		if(inworld())
+		{
+			dofloor();
+			docities();
+			doplayer();
+		}
+		else if(inresources())
+		{
+			doresourcemenus();
+		}
+
+		endtimer();
+		dowaittick();
 
 		render();
 	}

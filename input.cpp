@@ -14,15 +14,11 @@ int getinput()
 	}
 }
 
-int inputhandler(bool waitonblank)
+int inputhandler()
 {
 	int inp{getinput()};
 
-	if(inp == 0 && waitonblank)
-	{
-		dowaittick();
-	}
-	else if(inp == 27)
+	if(inp == 27)
 	{
 		shutdown();
 	}

@@ -5,12 +5,17 @@ static int playery{0};
 
 void doplayer()
 {
-  int inp{inputhandler(true)};
+  addobject(playerx, playery, 'X');
+
+  citydata(playerx, playery);
+}
+
+void doplayerinput()
+{
+  int inp{inputhandler()};
 
   if(inp != 0)
   {
-    // renderer(playerx, playery, 32); //clears current player position to prevent duplicates
-
     if(inp == 'w')
     {
       playery -= 1;
@@ -31,6 +36,17 @@ void doplayer()
     {
       createcity(playerx, playery);
     }
+    if(inp == 'l')
+    {
+      nextturn();
+    }
+    if(inp == 'r')
+    {
+      gotoresources();
+    }
+    if(inp == 'g')
+    {
+      gotoworld();
+    }
   }
-  addobject(playerx, playery, 'X');
 }

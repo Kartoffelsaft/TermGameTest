@@ -1,20 +1,36 @@
 #include "./game.h"
 #include <vector>
-using namespace std;
+#include <ncurses.h>
 
 static std::vector<char> objects;
 
 static int prevx{0};
 static int prevy{0};
 
+static int width;
+static int height;
+
+int sizex()
+{
+	return width;
+}
+
+int sizey()
+{
+	return height;
+}
+
 void objectspace()
 {
+  width = getmaxx(stdscr);
+  height = getmaxy(stdscr);
+
   int currentx{sizex()};
   int currenty{sizey()};
 
   if (currentx-prevx != 0 & currenty-prevy != 0)
   {
-    objects.resize((currenty + 3) * (currentx + 3)); //the +3's prevent segfaults when expanding the terminal
+    objects.resize((currenty) * (currentx)); //the +3's prevent segfaults when expanding the terminal
 
     prevx = currentx;
     prevy = currenty;
