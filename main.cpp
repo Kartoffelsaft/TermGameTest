@@ -4,6 +4,8 @@ int main()
 {
 	init();
 
+	generatedeposits();
+
 	while(running())
 	{
 		starttimer();
@@ -15,6 +17,7 @@ int main()
 		{
 			dofloor();
 			docities();
+			dodeposits();
 			doplayer();
 		}
 		else if(inresources())

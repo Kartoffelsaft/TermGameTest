@@ -47,6 +47,7 @@ void addtext(int, int, string);
 void doplayer();
 void dofloor();
 void docities();
+void dodeposits();
 void doresourcemenus();
 void objectspace();
 void addobject(int, int, char);
@@ -61,6 +62,9 @@ int cityincome();
 
 int getincome();
 void addincome();
+
+void generatedeposits();
+void irongenerator();
 
 
 /* MISC FUNCTIONS */
