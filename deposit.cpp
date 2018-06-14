@@ -1,7 +1,5 @@
 #include "./game.h"
 #include <vector>
-#include <random>
-#include <cmath>
 
 class Deposit
 {
@@ -18,17 +16,11 @@ static std::vector<Deposit> deposits;
 static std::uniform_int_distribution<> coordinates{0, 15};
 void irongenerator()
 {
-  std::random_device rd;
-  std::mt19937 gen(rd());
-
-  std::normal_distribution<> rawdepositcount{8, 2};
-  std::normal_distribution<> rawresourceamount{750, 250};
-
-  int depositcount{int(std::round(rawdepositcount(gen)))};
+  int depositcount{randbell(8, 2)};
 
   for(int i{0}; i < depositcount; i++)
   {
-    deposits.push_back({coordinates(gen), coordinates(gen), 0b00000001, int(std::round(rawresourceamount(gen)))});
+    deposits.push_back({randuni(0, 15), randuni(0, 15), 0b0000'0001, randbell(750, 250)});
   }
 }
 

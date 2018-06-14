@@ -72,4 +72,8 @@ void irongenerator();
 void dowaittick();			//to avoid wasting processing power by waiting when nothing is happening
 void starttimer();
 void endtimer();
+
+int randbell(int, int);
+int randuni(int, int);
+
 void nextturn();
