@@ -1,15 +1,21 @@
 #include "./game.h"
 #include <vector>
 
-struct city
+class City
 {
+public:
   int x;
   int y;
 
   int income;
+
+  void displaycitydata()
+  {
+    addtext(1, sizey() - 2, string("loc: ") + std::to_string(x) + string(", ") + std::to_string(y) + string(" income: ") + std::to_string(income));
+  }
 };
 
-static std::vector<city> cities;
+static std::vector<City> cities;
 
 int getcityid(int xqry, int yqry)
 {
@@ -51,12 +57,12 @@ int cityincome()
   return income;
 }
 
-void citydata(int x, int y)
+void docitydata(int x, int y)
 {
   int cityid{getcityid(x, y)};
 
   if(cityid != -1)
   {
-    addtext(1, sizey() - 2, (string("loc: ") + std::to_string(cities.at(cityid).x) + string(", ") + std::to_string(cities.at(cityid).y) + string(" income: ") + std::to_string(cities.at(cityid).income)));
+    cities.at(cityid).displaycitydata();
   }
 }

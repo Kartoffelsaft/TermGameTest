@@ -7,7 +7,7 @@ void doplayer()
 {
   addobject(playerx, playery, 'X');
 
-  citydata(playerx, playery);
+  docitydata(playerx, playery);
 }
 
 void doplayerinput()

@@ -3,8 +3,9 @@
 #include <random>
 #include <cmath>
 
-struct deposit
+class Deposit
 {
+public:
   int x;
   int y;
 
@@ -12,7 +13,7 @@ struct deposit
   int amount;
 };
 
-static std::vector<deposit> deposits;
+static std::vector<Deposit> deposits;
 
 static std::uniform_int_distribution<> coordinates{0, 15};
 void irongenerator()
