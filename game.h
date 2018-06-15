@@ -49,6 +49,7 @@ void dofloor();
 void docities();
 void dodeposits();
 void doresourcemenus();
+void dogui();
 void objectspace();
 void addobject(int, int, char);
 char fetchobj(int, int);

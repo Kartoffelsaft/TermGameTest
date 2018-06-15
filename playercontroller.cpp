@@ -1,7 +1,7 @@
 #include "./game.h"
 
-static int playerx{0};
-static int playery{0};
+static int playerx{1};
+static int playery{1};
 
 void doplayer()
 {

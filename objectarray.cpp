@@ -7,8 +7,8 @@ static std::vector<char> objects;
 static int prevx{0};
 static int prevy{0};
 
-static int width;
-static int height;
+static int width{0};
+static int height{0};
 
 int sizex()
 {
@@ -30,7 +30,7 @@ void objectspace()
 
   if (currentx-prevx != 0 & currenty-prevy != 0)
   {
-    objects.resize((currenty) * (currentx)); //the +3's prevent segfaults when expanding the terminal
+    objects.resize((currenty + 3) * (currentx + 3));
 
     prevx = currentx;
     prevy = currenty;

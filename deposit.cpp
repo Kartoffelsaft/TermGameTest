@@ -13,7 +13,6 @@ public:
 
 static std::vector<Deposit> deposits;
 
-static std::uniform_int_distribution<> coordinates{0, 15};
 void irongenerator()
 {
   int depositcount{randbell(8, 2)};

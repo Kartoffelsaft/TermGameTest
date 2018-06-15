@@ -18,6 +18,7 @@ int main()
 			dofloor();
 			docities();
 			dodeposits();
+			dogui();
 			doplayer();
 		}
 		else if(inresources())
