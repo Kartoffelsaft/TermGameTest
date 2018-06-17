@@ -3,18 +3,21 @@
 
 void render()
 {
-	int sx{sizex()};
-	int sy{sizey()};
-
-	for(int x{0}; x<sx; x++)
+	if(isevent())
 	{
-		for(int y{0}; y<sy; y++)
+		int sx{sizex()};
+		int sy{sizey()};
+
+		for(int x{0}; x<sx; x++)
 		{
-			char c{fetchobj(x, y)};
-			mvwaddch(stdscr, y, x, c);
+			for(int y{0}; y<sy; y++)
+			{
+				char c{fetchobj(x, y)};
+				mvwaddch(stdscr, y, x, c);
+			}
 		}
+		wrefresh(stdscr);
 	}
-	wrefresh(stdscr);
 }
 
 void addtext(int startx, int starty, string text)

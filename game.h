@@ -16,12 +16,18 @@ namespace consts
 /* INITIALIZATION, SHUTDOWN, AND GAMESTATE */
 
 void init();						//initializes input settings
+
 bool running();
 void shutdown();
+
 bool inworld();
 void gotoworld();
 bool inresources();
 void gotoresources();
+
+void newframe();
+bool isevent();
+void newevent();
 
 
 /* INPUT HANDLING */

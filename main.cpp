@@ -9,6 +9,7 @@ int main()
 	while(running())
 	{
 		starttimer();
+		newframe();
 		objectspace();
 
 		doplayerinput();

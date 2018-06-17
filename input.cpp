@@ -22,8 +22,10 @@ int inputhandler()
 	{
 		shutdown();
 	}
-	else
+	else if(inp != 0)
 	{
-		return inp;
+		newevent();
 	}
+
+	return inp;
 }
