@@ -55,6 +55,7 @@ void addobject(int, int, char);
 char fetchobj(int, int);
 int getcityid(int, int);
 void docitydata(int, int);
+void dodepositdata(int, int);
 void createcity(int, int);
 
 /* RESOURCE CONTROL */
