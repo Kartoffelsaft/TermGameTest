@@ -1,22 +1,7 @@
 #include "./game.h"
+#include "./structures.h"
 #include <vector>
-
-class Deposit
-{
-public:
-  int x;
-  int y;
-
-  char resourcetype; //b0 = iron, b1 = coal, rest undefined
-  int amount;
-
-  void displaydepositdata()
-  {
-    addtext(1, sizey() - 2, string("loc: ") + std::to_string(x) + string(", ") + std::to_string(y) + string(" volume: ") + std::to_string(amount));
-  }
-};
-
-static std::vector<Deposit> deposits;
+using namespace structures;
 
 int getdepositid(int xqry, int yqry)
 {
@@ -30,13 +15,34 @@ int getdepositid(int xqry, int yqry)
   return -1;
 }
 
+int getdepositx(int depositid)
+{return deposits.at(depositid).x;}
+int getdeposity(int depositid)
+{return deposits.at(depositid).y;}
+
+char getdepositresource(int depositid)
+{
+  return deposits.at(depositid).resourcetype;
+}
+
+void clearresources(int depositid, int minerate)
+{
+  deposits.at(depositid).amount -= minerate;
+}
+
 void irongenerator()
 {
   int depositcount{randbell(8, 2)};
 
   for(int i{0}; i < depositcount; i++)
   {
-    deposits.push_back({randuni(0, 15), randuni(0, 15), 0b0000'0001, randbell(750, 250)});
+    int x{randuni(0, 9)};
+    int y{randuni(0, 9)};
+
+    if(getdepositid(x, y) == -1)
+    {
+      deposits.push_back({x, y, 0b0000'0001, randbell(750, 250)});
+    }
   }
 }
 

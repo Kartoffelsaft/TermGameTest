@@ -1,21 +1,7 @@
 #include "./game.h"
+#include "./structures.h"
 #include <vector>
-
-class City
-{
-public:
-  int x;
-  int y;
-
-  int income;
-
-  void displaycitydata()
-  {
-    addtext(1, sizey() - 2, string("loc: ") + std::to_string(x) + string(", ") + std::to_string(y) + string(" income: ") + std::to_string(income));
-  }
-};
-
-static std::vector<City> cities;
+using namespace structures;
 
 int getcityid(int xqry, int yqry)
 {
@@ -29,7 +15,7 @@ int getcityid(int xqry, int yqry)
   return -1;
 }
 
-void createcity(int x, int y)
+void buildcity(int x, int y)
 {
   if(getcityid(x, y) == -1)
   {

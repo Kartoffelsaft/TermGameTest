@@ -19,6 +19,7 @@ int main()
 			dofloor();
 			docities();
 			dodeposits();
+			domines();
 			dogui();
 			doplayer();
 		}

@@ -15,7 +15,7 @@ void dofloor()
   {
     while(size[1]>yloop)
     {
-        addobject(xloop, yloop, '_');
+        addobject(xloop, yloop, '=');
 
         yloop += 1;
     }

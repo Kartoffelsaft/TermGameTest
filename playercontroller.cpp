@@ -35,7 +35,11 @@ void doplayerinput()
     }
     if(inp == 'b')
     {
-      createcity(playerx, playery);
+      buildcity(playerx, playery);
+    }
+    if(inp == 'm')
+    {
+      buildmine(playerx, playery);
     }
     if(inp == 'l')
     {

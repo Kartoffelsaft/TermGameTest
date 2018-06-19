@@ -3,6 +3,20 @@
 namespace resources
 {
   static int money{0};
+  static int iron{0};
+  static int coal{0};
+}
+
+void addminerals(char type, int amount)  //type should be just like the type found in Deposit class
+{
+  if(type == 0b0000'0001)
+  {
+    resources::iron += amount;
+  }
+  if(type == 0b0000'0010)
+  {
+    resources::coal += amount;
+  }
 }
 
 int getincome()
@@ -14,7 +28,7 @@ int getincome()
   return income;
 }
 
-void addincome()
+void addresources()
 {
   resources::money += getincome();
 }
@@ -22,4 +36,8 @@ void addincome()
 void doresourcemenus()
 {
   addtext(1, 1, (string("Money: ") + std::to_string(resources::money)));
+
+  addtext(1, 2, (string("Iron: ") + std::to_string(resources::iron)));
+
+  addtext(1, 3, (string("Coal: ") + std::to_string(resources::coal)));
 }
