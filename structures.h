@@ -38,9 +38,9 @@ public:
 
   int minerate;
 
-  void initmine(int x, int y)
+  void initmine(int depositid)
   {
-    exploiteddeposit = getdepositid(x, y);
+    exploiteddeposit = depositid;
 
     resourcetype = getdepositresource(exploiteddeposit);
     minerate = 2;
