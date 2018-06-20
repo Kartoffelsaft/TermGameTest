@@ -17,6 +17,9 @@ void doplayerinput()
 
   if(inp != 0)
   {
+    playerx = playerx % sizex(); //so that player location is actually on
+    playery = playery % sizey(); //screen and not just appearing that way
+
     if(inp == 'w')
     {
       playery -= 1;
