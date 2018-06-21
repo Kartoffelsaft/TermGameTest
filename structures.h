@@ -1,6 +1,23 @@
 #include "./game.h"
 #include <vector>
 
+class Terrain
+{
+public:
+  char biome{0b0000'0000};  //b0: land; 1 = land, 0 = water
+                                      //b1: altitude; 1 = extreme, 0 = normal
+                                      //bx: undefined
+
+  void setland()
+  {
+    biome = biome | 0b0000'0001;
+  }
+  bool getland()
+  {
+    return biome & 0b0000'0001;
+  }
+};
+
 class City
 {
 public:
@@ -56,6 +73,7 @@ public:
 
 namespace structures
 {
+  static std::vector<Terrain> terrains(settings::worldx * settings::worldy);
   static std::vector<City> cities;
   static std::vector<Deposit> deposits;
   static std::vector<Mine> mines;

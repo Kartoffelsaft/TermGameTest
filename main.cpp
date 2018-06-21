@@ -4,9 +4,10 @@ int main()
 {
 	init();
 
+	worldgen();
 	generatedeposits();
 
-	while(running())
+	do
 	{
 		starttimer();
 		newframe();
@@ -33,6 +34,7 @@ int main()
 
 		render();
 	}
+	while(running());
 
 	renderershutdown();
 	return 0;

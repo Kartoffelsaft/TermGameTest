@@ -5,6 +5,12 @@ using std::string;
 
 namespace settings
 {
+	const int worldx{4};
+	const int worldy{4};
+
+	const int landmasssize{2};
+	const int landrizechance{50};
+
 	const double idlerate{100}; 		//how many times per second gameloop happens while idle
 }
 
@@ -16,6 +22,8 @@ namespace consts
 /* INITIALIZATION, SHUTDOWN, AND GAMESTATE */
 
 void init();						//initializes game
+
+void worldgen();
 
 bool running();					//returns whether or not the game is supposed to be running
 void shutdown();				//falsifies running()'s return value (thereby ending the game safefully)
