@@ -10,8 +10,9 @@ namespace settings
 		const int worldx{16};
 		const int worldy{16};
 
-		const int landmasssize{2};
-		const int landrizechance{50};
+		const int maxcontinents{3};
+		const int landmasssize{3};
+		const int landrizechance{60};
 	}
 
 	const double idlerate{100}; 		//how many times per second gameloop happens while idle

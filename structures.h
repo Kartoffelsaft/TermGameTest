@@ -30,6 +30,12 @@ public:
       case 0b0000'0001:
         type = "land";
         break;
+      case 0b0000'0010:
+        type = "trench";
+        break;
+      case 0b0000'0011:
+        type = "mountain";
+        break;
     }
 
     addtext(1, sizey()-2, string("biome: ") + type + string(" resources: ") + std::to_string(deposits));
