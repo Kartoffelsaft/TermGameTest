@@ -5,11 +5,14 @@ using std::string;
 
 namespace settings
 {
-	const int worldx{4};
-	const int worldy{4};
+	namespace worldgen
+	{
+		const int worldx{16};
+		const int worldy{16};
 
-	const int landmasssize{2};
-	const int landrizechance{50};
+		const int landmasssize{2};
+		const int landrizechance{50};
+	}
 
 	const double idlerate{100}; 		//how many times per second gameloop happens while idle
 }
@@ -70,10 +73,15 @@ void objectspace();									//sets the size of the array for game objects to sit
 void addobject(int, int, char);			//places an object (char) in the 2D objects array at point x, y to be rendered (prone to segfaulting if improperly used)
 char fetchobj(int, int);						//returns the object most recently placed at x, y
 
+int world2dto1d(int, int);					//turns the x & y coords to the number that addresses a world tile in the terrains vector
+int world1dtox(int);								//inverse of the above function to get x
+int world1dtoy(int);								//inverse of the above function to get y
+
 int getcityid(int, int);						//returns location of the city at x, y inside of the cities array
 int getdepositid(int, int);					//returns a number like getcityid() but for deposits
 void docitydata(int, int);					//displays information about the city at x, y
 void dodepositdata(int, int);				//displays information about the deposit at x, y
+void dofloordata(int, int);
 void buildcity(int, int);						//creates a city at x, y
 void buildmine(int, int);						//places a mine at x, y
 char getdepositresource(int);				//input the depositid to get the resource type

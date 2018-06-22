@@ -8,7 +8,8 @@ void doplayer()
   addobject(playerx, playery, 'X');
 
   docitydata(playerx, playery);
-  dodepositdata(playerx, playery);
+  // dodepositdata(playerx, playery);
+  dofloordata(playerx, playery);
 }
 
 void doplayerinput()
@@ -17,9 +18,6 @@ void doplayerinput()
 
   if(inp != 0)
   {
-    playerx = playerx % sizex(); //so that player location is actually on
-    playery = playery % sizey(); //screen and not just appearing that way
-
     if(inp == 'w')
     {
       playery -= 1;
@@ -55,6 +53,20 @@ void doplayerinput()
     if(inp == 'g')
     {
       gotoworld();
+    }
+
+    if(playerx > 1 || playery > 1)
+    {
+      playerx = playerx % settings::worldgen::worldx; //so that player location is actually on
+      playery = playery % settings::worldgen::worldy; //screen and not just appearing that way
+    }
+    if(playerx < 1)
+    {
+      playerx = 1;
+    }
+    if(playery < 1)
+    {
+      playery = 1;
     }
   }
 }
