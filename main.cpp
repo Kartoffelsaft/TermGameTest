@@ -15,6 +15,7 @@ int main()
 
 		doplayerinput();
 
+		clearobjects();
 		if(inworld())
 		{
 			dofloor();

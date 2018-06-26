@@ -92,6 +92,7 @@ void dogui();												//prepares the gui for rendering
 
 void objectspace();									//sets the size of the array for game objects to sit within
 void addobject(int, int, char, int = -1);			//places an object (char) in the 2D objects array at point x, y to be rendered (prone to segfaulting if improperly used)
+void clearobjects();
 char fetchobj(int, int);						//returns the object most recently placed at x, y
 int fetchcolor(int, int);						//returns the color of an object at x, y
 

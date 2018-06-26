@@ -67,3 +67,11 @@ int fetchcolor(int x, int y)
 {
 	return objects[x * prevy + y].colorpair;
 }
+
+void clearobjects()
+{
+	for(int i{0}; i < objects.size(); i++)
+	{
+		objects.at(i).character = ' ';
+	}
+}
