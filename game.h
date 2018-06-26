@@ -23,6 +23,26 @@ namespace consts
 	const unsigned int maxnumb{unsigned(0)-unsigned(1)};	// for when an unrealistically large number is needed
 }
 
+namespace colors
+{
+	const int BLUE{0};
+	const int LIGHT_BLUE{1};
+	const int GREEN{2};
+	const int LIGHT_GREEN{3};
+	const int WHITE{4};
+	const int GRAY{5};
+	const int LIGHT_GRAY{6};
+	const int BLACK{7};
+
+	const int WATER_PAIR{1};
+	const int LAND_PAIR{2};
+	const int MOUNTAIN_PAIR{3};
+	const int FOREST_PAIR{4};
+	const int KELP_PAIR{5};
+	const int MONTANE_PAIR{6};
+	const int UNKNOWN_PAIR{7};
+}
+
 /* INITIALIZATION, SHUTDOWN, AND GAMESTATE */
 
 void init();						//initializes game
@@ -71,8 +91,9 @@ void doresourcemenus();							//displays information about current resource amou
 void dogui();												//prepares the gui for rendering
 
 void objectspace();									//sets the size of the array for game objects to sit within
-void addobject(int, int, char);			//places an object (char) in the 2D objects array at point x, y to be rendered (prone to segfaulting if improperly used)
+void addobject(int, int, char, int = -1);			//places an object (char) in the 2D objects array at point x, y to be rendered (prone to segfaulting if improperly used)
 char fetchobj(int, int);						//returns the object most recently placed at x, y
+int fetchcolor(int, int);						//returns the color of an object at x, y
 
 int world2dto1d(int, int);					//turns the x & y coords to the number that addresses a world tile in the terrains vector
 int world1dtox(int);								//inverse of the above function to get x

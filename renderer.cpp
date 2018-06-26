@@ -13,6 +13,7 @@ void render()
 			for(int y{0}; y<sy; y++)
 			{
 				char c{fetchobj(x, y)};
+				attron(COLOR_PAIR(fetchcolor(x, y)));
 				mvwaddch(stdscr, y, x, c);
 			}
 		}

@@ -106,28 +106,28 @@ void dofloor()
       switch (getterrain(i, j).biome)
       {
         case 0b0000'0000://ocean
-          addobject(i, j, '~');
+          addobject(i, j, '~', colors::WATER_PAIR);
           break;
         case 0b0000'0001://land
-          addobject(i, j, '=');
+          addobject(i, j, '=', colors::LAND_PAIR);
           break;
         case 0b0000'0010://trench
-          addobject(i, j, 'v');
+          addobject(i, j, 'v', colors::WATER_PAIR);
           break;
         case 0b0000'0011://mountain
-          addobject(i, j, 'A');
+          addobject(i, j, 'A', colors::MOUNTAIN_PAIR);
           break;
         case 0b0000'0100://swamp
-          addobject(i, j, '@');
+          addobject(i, j, '@', colors::FOREST_PAIR);
           break;
         case 0b0000'0101://forest
-          addobject(i, j, 'T');
+          addobject(i, j, 'T', colors::FOREST_PAIR);
           break;
         case 0b0000'0110://kelp forest
-          addobject(i, j, ';');
+          addobject(i, j, ';', colors::KELP_PAIR);
           break;
         case 0b0000'0111://montane
-          addobject(i, j, '%');
+          addobject(i, j, '%', colors::MONTANE_PAIR);
           break;
         default:
           addobject(i, j, '?');
