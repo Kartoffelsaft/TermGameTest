@@ -36,6 +36,18 @@ public:
       case 0b0000'0011:
         type = "mountain";
         break;
+      case 0b0000'0100:
+        type = "swamp";
+        break;
+      case 0b0000'0101:
+        type = "forest";
+        break;
+      case 0b0000'0110:
+        type = "kelp forest";
+        break;
+      case 0b0000'0111:
+        type = "montane";
+        break;
     }
 
     addtext(1, sizey()-2, string("biome: ") + type + string(" resources: ") + std::to_string(deposits));
