@@ -7,13 +7,14 @@ namespace settings
 {
 	namespace worldgen
 	{
-		const int worldx{16};
-		const int worldy{16};
+		const int worldx{64};
+		const int worldy{32};
 
 		const int maxcontinents{3};
-		const int landmasssize{3};
+		const int landmasssize{12};
 		const int landrizechance{60};
 	}
+	const int cityrange{3};
 
 	const double idlerate{100}; 		//how many times per second gameloop happens while idle
 }
@@ -115,6 +116,8 @@ void addminerals(char, int);					//given the type and amount of resource, it wil
 
 
 /* RESOURCE CONTROL */
+
+int getlandvalue(int, int);					//returns the value of a piece of land (for a city)
 
 int cityincome();										//returns how much income comes from cities
 

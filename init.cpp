@@ -12,7 +12,7 @@ void init()
 
 	start_color();
 		init_color(BLUE, 0, 0, 1000);
-		init_color(LIGHT_BLUE, 500, 500, 1000);
+		init_color(LIGHT_BLUE, 250, 250, 1000);
 		init_color(GREEN, 0, 500, 0);
 		init_color(LIGHT_GREEN, 0, 1000, 0);
 		init_color(WHITE, 1000, 1000, 1000);

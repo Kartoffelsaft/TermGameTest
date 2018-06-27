@@ -30,7 +30,7 @@ using namespace settings::worldgen;
 
 Terrain& getterrain(int x, int y)
 {
-  return terrains.at((x * worldy + 1) + (y + 1));
+  return terrains.at(world2dto1d(x, y));
 }
 
 int world2dto1d(int x, int y)
@@ -150,4 +150,25 @@ void clearresources(int location, int amount)
 char getdepositresource(int location)
 {
   return terrains.at(location).biome;
+}
+
+int getlandvalue(int x, int y)
+{
+  char land{getterrain(x, y).biome};
+  int value{0};
+
+  if(land & 0b0000'0001)//is land
+  {
+    value += 2;
+  }
+  if(land & 0b0000'0010)//is extreme elevation
+  {
+    value -= 2;
+  }
+  if(land & 0b0000'0100)//is forested
+  {
+    value += 1;
+  }
+
+  return value;
 }

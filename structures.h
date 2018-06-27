@@ -10,10 +10,6 @@ public:
                             //bx: undefined
   int deposits{randbell(750, 250)};
 
-  void setland()
-  {
-    biome = biome | 0b0000'0001;
-  }
   bool getland()
   {
     return biome & 0b0000'0001;
