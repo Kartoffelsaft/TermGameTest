@@ -13,6 +13,9 @@ namespace settings
 		const int maxcontinents{3};
 		const int landmasssize{12};
 		const int landrizechance{60};
+
+		const int polepercent{15};
+		const int polevariation{5};
 	}
 	const int cityrange{3};
 
@@ -35,13 +38,15 @@ namespace colors
 	const int LIGHT_GRAY{6};
 	const int BLACK{7};
 
-	const int WATER_PAIR{1};
-	const int LAND_PAIR{2};
-	const int MOUNTAIN_PAIR{3};
-	const int FOREST_PAIR{4};
-	const int KELP_PAIR{5};
-	const int MONTANE_PAIR{6};
-	const int UNKNOWN_PAIR{7};
+	const int UNKNOWN_PAIR{1};
+	const int WATER_PAIR{2};
+	const int LAND_PAIR{3};
+	const int MOUNTAIN_PAIR{4};
+	const int FOREST_PAIR{5};
+	const int KELP_PAIR{6};
+	const int MONTANE_PAIR{7};
+	const int ICE_PAIR{8};
+	const int TUNDRA_PAIR{9};
 }
 
 /* INITIALIZATION, SHUTDOWN, AND GAMESTATE */

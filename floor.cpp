@@ -90,11 +90,30 @@ void makeblob(char type, int landmassmax = maxcontinents, int size = landmasssiz
   }
 }
 
+void makecap(char type, int percentcoverage = polepercent, int variation = polevariation)
+{
+  for(int i{0}; i < worldx; i++)
+  {
+    int polelatitude{randbell(worldy * percentcoverage, percentcoverage * variation)/100};
+    for(int j{0}; j < polelatitude; j++)
+    {
+      getterrain(i, j).biome |= type;
+    }
+
+    polelatitude = randbell(worldy * percentcoverage, percentcoverage * variation)/100;
+    for(int j{0}; j < polelatitude; j++)
+    {
+      getterrain(i, worldy - j).biome |= type;
+    }
+  }
+}
+
 void worldgen()
 {
   makeblob(0b0000'0001);//add land
   makeblob(0b0000'0010);//set altitudes
   makeblob(0b0000'0100);//add vegetation
+  makecap(0b0000'1000);//add ice
 }
 
 void dofloor()
@@ -128,6 +147,30 @@ void dofloor()
           break;
         case 0b0000'0111://montane
           addobject(i, j, '%', colors::MONTANE_PAIR);
+          break;
+        case 0b0000'1000://glacier
+          addobject(i, j, '*', colors::ICE_PAIR);
+          break;
+        case 0b0000'1001://snow
+          addobject(i, j, ' ', colors::ICE_PAIR);
+          break;
+        case 0b0000'1010://arctic water
+          addobject(i, j, '*', colors::WATER_PAIR);
+          break;
+        case 0b0000'1011://snowy mountain
+          addobject(i, j, 'A', colors::ICE_PAIR);
+          break;
+        case 0b0000'1100://frozen junk
+          addobject(i, j, '$', colors::ICE_PAIR);
+          break;
+        case 0b0000'1101://tundra
+          addobject(i, j, 'T', colors::TUNDRA_PAIR);
+          break;
+        case 0b0000'1110://arctic corals
+          addobject(i, j, ';', colors::ICE_PAIR);
+          break;
+        case 0b0000'1111://frozen montane
+          addobject(i, j, '%', colors::TUNDRA_PAIR);
           break;
         default:
           addobject(i, j, '?');
