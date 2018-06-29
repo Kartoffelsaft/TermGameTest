@@ -212,6 +212,10 @@ int getlandvalue(int x, int y)
   {
     value += 1;
   }
+  if(land & 0b0000'1000)//is cold
+  {
+    value -= 3;
+  }
 
   return value;
 }

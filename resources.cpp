@@ -6,6 +6,7 @@ namespace resources
   static int iron{0};
   static int coal{0};
   static int wood{0};
+  static int ice{0};
 }
 
 void addminerals(char type, int amount)  //type should be just like the type found in Deposit class
@@ -21,6 +22,10 @@ void addminerals(char type, int amount)  //type should be just like the type fou
   if(type & 0b0000'0100)
   {
     resources::wood += amount;
+  }
+  if(type & 0b0000'1000)
+  {
+    resources::ice += amount;
   }
 }
 
@@ -47,4 +52,6 @@ void doresourcemenus()
   addtext(1, 3, (string("Coal: ") + std::to_string(resources::coal)));
 
   addtext(1, 4, (string("Wood: ") + std::to_string(resources::wood)));
+
+  addtext(1, 5, (string("Ice: ") + std::to_string(resources::ice)));
 }
