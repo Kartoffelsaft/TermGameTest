@@ -17,41 +17,35 @@ void doplayerinput()
 
   if(inp != 0)
   {
-    if(inp == 'w')
+    switch(inp)
     {
-      playery -= 1;
-    }
-    if(inp == 's')
-    {
-      playery += 1;
-    }
-    if(inp == 'a')
-    {
-      playerx -= 1;
-    }
-    if(inp == 'd')
-    {
-      playerx += 1;
-    }
-    if(inp == 'b')
-    {
-      buildcity(playerx, playery);
-    }
-    if(inp == 'm')
-    {
-      buildmine(playerx, playery);
-    }
-    if(inp == 'l')
-    {
-      nextturn();
-    }
-    if(inp == 'r')
-    {
-      gotoresources();
-    }
-    if(inp == 'g')
-    {
-      gotoworld();
+      case 'w':
+        playery -= 1;
+        break;
+      case 's':
+        playery += 1;
+        break;
+      case 'a':
+        playerx -= 1;
+        break;
+      case 'd':
+        playerx += 1;
+        break;
+      case 'b':
+        buildcity(playerx, playery);
+        break;
+      case 'm':
+        buildmine(playerx, playery);
+        break;
+      case 'l':
+        nextturn();
+        break;
+      case 'r':
+        gotoresources();
+        break;
+      case 'g':
+        gotoworld();
+        break;
     }
 
     if(playerx > 1 || playery > 1)
@@ -61,11 +55,11 @@ void doplayerinput()
     }
     if(playerx < 1)
     {
-      playerx = 1;
+      playerx = settings::worldgen::worldx - 1;
     }
     if(playery < 1)
     {
-      playery = 1;
+      playery = settings::worldgen::worldy - 1;
     }
   }
 }
