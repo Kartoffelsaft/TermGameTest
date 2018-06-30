@@ -5,7 +5,6 @@ int main()
 	init();
 
 	worldgen();
-	// generatedeposits();
 
 	do
 	{
@@ -20,7 +19,6 @@ int main()
 		{
 			dofloor();
 			docities();
-			// dodeposits();
 			domines();
 			dogui();
 			doplayer();

@@ -64,21 +64,6 @@ public:
   }
 };
 
-// class Deposit
-// {
-// public:
-//   int x;
-//   int y;
-//
-//   char resourcetype; //b0 = iron, b1 = coal, rest undefined
-//   int amount;
-//
-//   void displaydepositdata()
-//   {
-//     addtext(1, sizey() - 2, string("loc: ") + std::to_string(x) + string(", ") + std::to_string(y) + string(" volume: ") + std::to_string(amount));
-//   }
-// };
-
 class Mine
 {
 public:
@@ -107,6 +92,5 @@ namespace structures
 {
   static std::vector<Terrain> terrains((settings::worldgen::worldx + 1) * (settings::worldgen::worldy + 1));
   static std::vector<City> cities;
-  // static std::vector<Deposit> deposits;
   static std::vector<Mine> mines;
 }

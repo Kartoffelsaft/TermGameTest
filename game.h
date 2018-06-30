@@ -80,7 +80,6 @@ void doplayerinput();		//handles most inputs by the player (some to be moved to 
 // void renderer(int, int, char);
 void render();											//triggers the rendering of the scene. isevent() must be true for it to work
 void renderershutdown();						//safely stops the renderer
-// void rendererfinish();
 int sizex();												//returns the height of the terminal
 int sizey();												//returns the width of the terminal
 void addtext(int, int, string);			//adds a string of text starting at coords x, y
