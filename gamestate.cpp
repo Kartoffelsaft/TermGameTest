@@ -65,7 +65,7 @@ void newframe()
 
 bool isevent()
 {
-	gamestate.test(3);
+	return gamestate.test(3);
 }
 
 void newevent()
