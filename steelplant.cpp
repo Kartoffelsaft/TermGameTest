@@ -20,3 +20,15 @@ void dosteelplants()
     addobject(steelplants.at(i).x(), steelplants.at(i).y(), 'F');
   }
 }
+
+int steelproduction()
+{
+  int volume{0};
+
+  for(int i{0}; i < steelplants.size(); i++)
+  {
+    volume += steelplants.at(i).rate;
+  }
+
+  return volume;
+}

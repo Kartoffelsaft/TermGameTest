@@ -130,10 +130,8 @@ bool buy(int);												//returns if there are sufficient funds to do somethin
 int cityincome();										//returns how much income comes from cities
 int getincome();										//returns how much income is earned per turn
 void addresources();										//adds income to the current money pool
-
-void generatedeposits();						//creates all of the deposits for the game world
-void irongenerator();								//creates all of the iron deposits (called by generatedeposits())
 void extractresources();						//calls the functions needed to turn unextracted resources (in deposits class) to extracted resources (in resources namespace)
+int steelproduction();
 
 
 /* MISC FUNCTIONS */
