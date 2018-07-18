@@ -12,11 +12,6 @@ public:
                             //bx: undefined
   int deposits{randbell(750, 250)};
 
-  bool getland()
-  {
-    return biome & 0b0000'0001;
-  }
-
   void displayterraindata()
   {
     string type;
@@ -76,42 +71,64 @@ public:
   }
 };
 
-class City
+class Building
 {
 public:
-  int x;
-  int y;
+  int terrainloc;//location of the building in 1d form, usually for interacting with terrain
 
+  int x()//returns x coord. to write instead of read, use build(int, int)
+  {
+    return world1dtox(terrainloc);
+  }
+  int y()//returns y coord. to write instead of read, use build(int, int)
+  {
+    return world1dtoy(terrainloc);
+  }
+
+  void build(int x, int y)//sets x and y coords of a building
+  {
+    terrainloc = world2dto1d(x, y);
+  }
+};
+
+class City : public Building
+{
+public:
   int income;
 
   void displaycitydata()
   {
-    addtext(1, sizey() - 2, string("loc: ") + std::to_string(x) + string(", ") + std::to_string(y) + string(" income: ") + std::to_string(income));
+    addtext(1, sizey() - 2, string("loc: ") + std::to_string(x()) + string(", ") + std::to_string(y()) + string(" income: ") + std::to_string(income));
   }
 };
 
-class Mine
+class Mine : public Building
 {
 public:
-  int exploiteddeposit;
   char resourcetype;
 
   int minerate;
 
-  void initmine(int deposit)
+  void initmine(int x, int y)
   {
-    exploiteddeposit = deposit;
+    build(x, y);
 
-    resourcetype = getdepositresource(exploiteddeposit);
+    resourcetype = getdepositresource(terrainloc);
     minerate = 2;
   }
 
   void mine()
   {
-    clearresources(exploiteddeposit, minerate);
+    clearresources(terrainloc, minerate);
 
     addminerals(resourcetype, minerate);
   }
+};
+
+class SteelPlant : public Building
+{
+public:
+  int rate;
 };
 
 namespace structures
@@ -119,4 +136,5 @@ namespace structures
   static std::vector<Terrain> terrains((settings::worldgen::worldx + 1) * (settings::worldgen::worldy + 1));
   static std::vector<City> cities;
   static std::vector<Mine> mines;
+  static std::vector<SteelPlant> steelplants;
 }

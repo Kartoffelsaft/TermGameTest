@@ -7,7 +7,7 @@ int getcityid(int xqry, int yqry)
 {
   for(int checkc; checkc < cities.size(); checkc++)
   {
-    if((cities.at(checkc).x == xqry) & (cities.at(checkc).y == yqry))
+    if((cities.at(checkc).x() == xqry) & (cities.at(checkc).y() == yqry))
     {
       return checkc;
     }
@@ -30,15 +30,17 @@ void buildcity(int x, int y)
       }
     }
 
-    cities.push_back({x, y, cityvalue});
+    cities.push_back({});
+    cities.back().build(x, y);
+    cities.back().income = cityvalue;
   }
 }
 
 void docities()
 {
-  for(int checkc; checkc < cities.size(); checkc++)
+  for(int checkc{0}; checkc < cities.size(); checkc++)
   {
-    addobject(cities.at(checkc).x, cities.at(checkc).y, '#');
+    addobject(cities.at(checkc).x(), cities.at(checkc).y(), '#');
   }
 }
 

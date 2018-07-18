@@ -7,9 +7,7 @@ void buildmine(int x, int y)
 {
   mines.push_back({-1, 0, 0});
 
-  int deposit{world2dto1d(x, y)};
-
-  mines.at(mines.size() - 1).initmine(deposit);
+  mines.back().initmine(x, y);
 }
 
 void extractresources()
@@ -24,8 +22,6 @@ void domines()
 {
   for(int i{0}; i < mines.size(); i++)
   {
-    int mineloc{mines.at(i).exploiteddeposit};
-
-    addobject(world1dtox(mineloc), world1dtoy(mineloc), 'Q');
+    addobject(mines.at(i).x(), mines.at(i).y(), 'Q');
   }
 }
