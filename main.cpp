@@ -6,7 +6,7 @@ int main()
 
 	worldgen();
 
-	do
+	while(running());
 	{
 		starttimer();
 		newframe();
@@ -34,7 +34,6 @@ int main()
 
 		render();
 	}
-	while(running());
 
 	renderershutdown();
 	return 0;
