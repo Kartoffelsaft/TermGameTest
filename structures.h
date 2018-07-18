@@ -12,11 +12,6 @@ public:
                             //bx: undefined
   int deposits{randbell(750, 250)};
 
-  bool getland()
-  {
-    return biome & 0b0000'0001;
-  }
-
   void displayterraindata()
   {
     string type;
