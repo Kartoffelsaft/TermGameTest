@@ -7,6 +7,8 @@ class Terrain
 public:
   char biome{0b0000'0000};  //b0: land; 1 = land, 0 = water
                             //b1: altitude; 1 = extreme, 0 = normal
+                            //b2: vegetation; 1 = plants, 0 = barren
+                            //b3: temperature; 1 = cold, 0 = warm
                             //bx: undefined
   int deposits{randbell(750, 250)};
 
@@ -18,11 +20,7 @@ public:
   void displayterraindata()
   {
     string type;
-<<<<<<< HEAD
     switch (biome) //if anyone knows of a better way to do this, please tell me, because maintaining this whole biome thing is ... inconvinient to put it nicely
-=======
-    switch (biome) //if anyone knows of a better way to do this, please tell me, because maintaining this whole biome thing is ... inconvinient to but it nicely
->>>>>>> 7eb5182fb7be71fba5de487e973716eabb9a567d
     {
       case 0b0000'0000:
         type = "ocean";
