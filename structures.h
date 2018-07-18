@@ -125,9 +125,16 @@ public:
   }
 };
 
+class SteelPlant : public Building
+{
+public:
+  int rate;
+};
+
 namespace structures
 {
   static std::vector<Terrain> terrains((settings::worldgen::worldx + 1) * (settings::worldgen::worldy + 1));
   static std::vector<City> cities;
   static std::vector<Mine> mines;
+  static std::vector<SteelPlant> steelplants;
 }

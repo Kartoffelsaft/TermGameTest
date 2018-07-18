@@ -87,13 +87,14 @@ void addtext(int, int, string);			//adds a string of text starting at coords x, 
 
 /* GAME OBJECT HANDLING */
 
-void doplayer();										//prepares the player for rendering, and triggers player-location-bound functions
-void dofloor();											//prepares the floor for rendering
-void docities();										//prepares the cities for rendering
-void dodeposits();									//prepares the deposits for rendering
-void domines();											//prepares the mines for rendering
-void doresourcemenus();							//displays information about current resource amounts when inresources() is true
-void dogui();												//prepares the gui for rendering
+void doplayer();										//functions starting with do place characters in the objects vector for rendering
+void dofloor();
+void dosteelplants();
+void docities();
+void dodeposits();
+void domines();
+void doresourcemenus();
+void dogui();
 
 void objectspace();									//sets the size of the array for game objects to sit within
 void addobject(int, int, char, int = -1);			//places an object (char) in the 2D objects array at point x, y to be rendered (prone to segfaulting if improperly used)
@@ -112,6 +113,7 @@ void dodepositdata(int, int);				//displays information about the deposit at x, 
 void dofloordata(int, int);
 void buildcity(int, int);						//creates a city at x, y
 void buildmine(int, int);						//places a mine at x, y
+void buildsteelplant(int, int);
 char getdepositresource(int);				//input the depositid to get the resource type
 int getdepositx(int);								//turns depositid into x coord
 int getdeposity(int);								//turns depositid into y coord
@@ -123,8 +125,9 @@ void addminerals(char, int);					//given the type and amount of resource, it wil
 
 int getlandvalue(int, int);					//returns the value of a piece of land (for a city)
 
-int cityincome();										//returns how much income comes from cities
+bool buy(int);												//returns if there are sufficient funds to do something. if true, it will be deducted from money pool
 
+int cityincome();										//returns how much income comes from cities
 int getincome();										//returns how much income is earned per turn
 void addresources();										//adds income to the current money pool
 

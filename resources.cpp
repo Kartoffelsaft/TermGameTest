@@ -29,6 +29,19 @@ void addminerals(char type, int amount)  //type should be just like the type fou
   }
 }
 
+bool buy(int cost)
+{
+  if(resources::money >= cost)
+  {
+    resources::money -= cost;
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
+
 int getincome()
 {
   int income{0};

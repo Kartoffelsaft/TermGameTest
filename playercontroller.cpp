@@ -37,6 +37,9 @@ void doplayerinput()
       case 'm':
         buildmine(playerx, playery);
         break;
+      case 'p':
+        buildsteelplant(playerx, playery);
+        break;
       case 'l':
         nextturn();
         break;

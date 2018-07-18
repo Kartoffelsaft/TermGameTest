@@ -18,6 +18,7 @@ int main()
 		if(inworld())
 		{
 			dofloor();
+			dosteelplants();
 			docities();
 			domines();
 			dogui();
