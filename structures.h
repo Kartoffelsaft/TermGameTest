@@ -18,7 +18,11 @@ public:
   void displayterraindata()
   {
     string type;
-    switch (biome)
+<<<<<<< HEAD
+    switch (biome) //if anyone knows of a better way to do this, please tell me, because maintaining this whole biome thing is ... inconvinient to put it nicely
+=======
+    switch (biome) //if anyone knows of a better way to do this, please tell me, because maintaining this whole biome thing is ... inconvinient to but it nicely
+>>>>>>> 7eb5182fb7be71fba5de487e973716eabb9a567d
     {
       case 0b0000'0000:
         type = "ocean";
@@ -44,9 +48,33 @@ public:
       case 0b0000'0111:
         type = "montane";
         break;
+      case 0b0000'1000:
+        type = "glacier";
+        break;
+      case 0b0000'1001:
+        type = "snow";
+        break;
+      case 0b0000'1010:
+        type = "arctic water";
+        break;
+      case 0b0000'1011:
+        type = "snowy mountain";
+        break;
+      case 0b0000'1100:
+        type = "frozen junk";
+        break;
+      case 0b0000'1101:
+        type = "tundra";
+        break;
+      case 0b0000'1110:
+        type = "arctic corals";
+        break;
+      case 0b0000'1111:
+        type = "frozen montane";
+        break;
     }
 
-    addtext(1, sizey()-2, string("biome: ") + type + string(" resources: ") + std::to_string(deposits));
+    addtext(1, sizey()-2, string("biome: ") + type + string("  resources: ") + std::to_string(deposits));
   }
 };
 
