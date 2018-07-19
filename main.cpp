@@ -6,10 +6,9 @@ int main()
 
 	worldgen();
 
-	while(running());
+	while(running())
 	{
 		starttimer();
-		newframe();
 		objectspace();
 
 		doplayerinput();
@@ -29,10 +28,12 @@ int main()
 			doresourcemenus();
 		}
 
+		render();
+
+		newframe();
+
 		endtimer();
 		dowaittick();
-
-		render();
 	}
 
 	renderershutdown();

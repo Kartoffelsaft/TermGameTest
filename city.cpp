@@ -5,34 +5,48 @@ using namespace structures;
 
 int getcityid(int xqry, int yqry)
 {
-  for(int checkc; checkc < cities.size(); checkc++)
+  int queryloc{world2dto1d(xqry, yqry)};
+  int id{-1};
+
+  for(int checkc{0}; checkc < cities.size(); checkc++)
   {
-    if((cities.at(checkc).x() == xqry) & (cities.at(checkc).y() == yqry))
+    if(cities.at(checkc).terrainloc == queryloc)
     {
-      return checkc;
+      id = checkc;
     }
   }
-  return -1;
+  return id;
 }
 
-void buildcity(int x, int y)
+void updatecities()
 {
-  if(getcityid(x, y) == -1)
+  for(int i{0}; i < cities.size(); i++)
   {
-    int cityvalue{0};
+    cities.at(i).income = 0;
+    cities.at(i).population = 0;
 
     using namespace settings;
     for(int rx{0}; rx < 2 * cityrange + 1; rx++)
     {
       for(int ry{0}; ry < 2 * cityrange + 1; ry++)
       {
-        cityvalue += getlandvalue(x - rx + cityrange, y - ry + cityrange);
+        int workingx{cities.at(i).x() - rx + cityrange};
+        int workingy{cities.at(i).y() - ry + cityrange};
+
+        cities.at(i).income += getlandvalue(workingx, workingy, 0);
+        cities.at(i).population += getlandvalue(workingx, workingy, 1);
       }
     }
+  }
+}
 
+void buildcity(int x, int y)
+{
+  if(getcityid(x, y) == -1)
+  {
     cities.push_back({});
     cities.back().build(x, y);
-    cities.back().income = cityvalue;
+    updatecities();
   }
 }
 

@@ -115,15 +115,13 @@ void buildcity(int, int);						//creates a city at x, y
 void buildmine(int, int);						//places a mine at x, y
 void buildsteelplant(int, int);
 char getdepositresource(int);				//input the depositid to get the resource type
-int getdepositx(int);								//turns depositid into x coord
-int getdeposity(int);								//turns depositid into y coord
 void clearresources(int, int);			//decreases deposit(of the first int)'s resource amount by (the second) int
 void addminerals(char, int);					//given the type and amount of resource, it will be added to the resource pool
 
 
 /* RESOURCE CONTROL */
 
-int getlandvalue(int, int);					//returns the value of a piece of land (for a city)
+int getlandvalue(int, int, int = 0);					//returns the value of a piece of land (for a city) last int determines what value is returned
 
 bool buy(int);												//returns if there are sufficient funds to do something. if true, it will be deducted from money pool
 

@@ -95,10 +95,13 @@ class City : public Building
 {
 public:
   int income;
+  int population;
 
   void displaycitydata()
   {
-    addtext(1, sizey() - 2, string("loc: ") + std::to_string(x()) + string(", ") + std::to_string(y()) + string(" income: ") + std::to_string(income));
+    addtext(1, sizey() - 2, string("loc: ") + std::to_string(x()) + string(", ") + std::to_string(y()) +
+                            string(" income: ") + std::to_string(income) +
+                            string(" population: ") + std::to_string(population));
   }
 };
 

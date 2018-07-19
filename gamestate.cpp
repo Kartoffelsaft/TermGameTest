@@ -1,7 +1,7 @@
 #include <bitset>
 #include "game.h"
 
-static std::bitset<8> gamestate{0b00000001};		/* starting from rightmost bit
+static std::bitset<8> gamestate{0b00001001};		/* starting from rightmost bit
 																								0: is game running
 																								1: menu state (00 = world, 01 = resources)
 																								2: menu state (10 = unsgnd, 11 = unsgnd)
