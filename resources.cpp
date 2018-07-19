@@ -56,6 +56,8 @@ int getincome()
 
 void addresources()
 {
+  extractresources();
+
   resources::money += getincome();
 
   int steelinc{steelproduction()};

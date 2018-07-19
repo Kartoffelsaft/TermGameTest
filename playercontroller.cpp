@@ -7,8 +7,8 @@ void doplayer()
 {
   addobject(playerx, playery, 'X');
 
-  docitydata(playerx, playery);
   dofloordata(playerx, playery);
+  docitydata(playerx, playery);
 }
 
 void doplayerinput()

@@ -2,6 +2,5 @@
 
 void nextturn()
 {
-  extractresources();
   addresources();
 }

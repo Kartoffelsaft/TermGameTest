@@ -171,26 +171,32 @@ char getdepositresource(int location)
   return terrains.at(location).biome;
 }
 
-int getlandvalue(int x, int y)
+int getlandvalue(int x, int y, int type)//type 0 is money, 1 is population, later numbers to be used in future
 {
   char land{getterrain(x, y).biome};
   int value{0};
 
-  if(land & 0b0000'0001)//is land
+  if(type == 0)
   {
-    value += 2;
+    if(land & 0b0000'0001)//is land
+    {value += 2;}
+    if(land & 0b0000'0010)//is extreme elevation
+    {value -= 2;}
+    if(land & 0b0000'0100)//is forested
+    {value += 1;}
+    if(land & 0b0000'1000)//is cold
+    {value -= 3;}
   }
-  if(land & 0b0000'0010)//is extreme elevation
+  else if(type == 1)
   {
-    value -= 2;
-  }
-  if(land & 0b0000'0100)//is forested
-  {
-    value += 1;
-  }
-  if(land & 0b0000'1000)//is cold
-  {
-    value -= 3;
+    if(land & 0b0000'0001)
+    {value += 500;}
+    if(land & 0b0000'0010)
+    {value -= 300;}
+    if(land & 0b0000'0100)
+    {value += 250;}
+    if(land & 0b0000'1000)
+    {value -= 500;}
   }
 
   return value;
