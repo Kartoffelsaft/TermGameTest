@@ -54,7 +54,7 @@ void docities()
 {
   for(int checkc{0}; checkc < cities.size(); checkc++)
   {
-    addobject(cities.at(checkc).x(), cities.at(checkc).y(), '#');
+    cities.at(checkc).render('#');
   }
 }
 

@@ -53,8 +53,8 @@ void doplayerinput()
 
     if(playerx > 1 || playery > 1)
     {
-      playerx = playerx % settings::worldgen::worldx; //so that player location is actually on
-      playery = playery % settings::worldgen::worldy; //screen and not just appearing that way
+      playerx = playerx % sizex(); //so that player location is actually on
+      playery = playery % sizey(); //screen and not just appearing that way
     }
     if(playerx < 1)
     {

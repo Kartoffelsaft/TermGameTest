@@ -1,8 +1,15 @@
 #include "./game.h"
 #include "./structures.h"
+#include "./world.h"
 #include <bitset>
 using namespace structures;
 using namespace settings::worldgen;
+
+namespace world
+{
+  int xoffset{0};
+  int yoffset{0};
+}
 
 Terrain& getterrain(int x, int y)
 {
@@ -11,12 +18,21 @@ Terrain& getterrain(int x, int y)
 
 int world2dto1d(int x, int y)
 {
-  return ((x * worldy + 1) + (y + 1));
+  int guessloc{((x + world::xoffset) * worldy) + (y + world::yoffset)};
+
+  if(guessloc < terrains.size()) //this is just cheesing my way out of segfaults
+  {
+    return guessloc;
+  }
+  else
+  {
+    return terrains.size() - 1;
+  }
 }
 int world1dtox(int location)
-{return (location - 1)/worldy;}
+{return (location)/worldy - world::xoffset;}
 int world1dtoy(int location)
-{return (location - 1)%worldy - 1;}
+{return (location)%worldy - world::yoffset;}
 
 void makeblob(char type, int landmassmax = maxcontinents, int size = landmasssize, int rizechance = landrizechance)
 {
@@ -48,7 +64,7 @@ void makeblob(char type, int landmassmax = maxcontinents, int size = landmasssiz
           if(down < worldy &&
              randuni(0, 100) < rizechance)
           {
-            getterrain(x, up).biome |= type;
+            getterrain(x, down).biome |= type;
           }
           if(left >= 0 &&
              randuni(0, 100) < rizechance)

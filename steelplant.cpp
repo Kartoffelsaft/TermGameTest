@@ -17,7 +17,7 @@ void dosteelplants()
 {
   for(int i{0}; i < steelplants.size(); i++)
   {
-    addobject(steelplants.at(i).x(), steelplants.at(i).y(), 'F');
+    steelplants.at(i).render('F');
   }
 }
 

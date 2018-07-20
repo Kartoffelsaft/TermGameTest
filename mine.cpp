@@ -22,6 +22,6 @@ void domines()
 {
   for(int i{0}; i < mines.size(); i++)
   {
-    addobject(mines.at(i).x(), mines.at(i).y(), 'Q');
+    mines.at(i).render('Q');
   }
 }

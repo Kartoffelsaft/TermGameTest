@@ -12,7 +12,7 @@ namespace settings
 
 		const int maxcontinents{3};
 		const int landmasssize{12};
-		const int landrizechance{60};
+		const int landrizechance{30};
 
 		const int polepercent{15};
 		const int polevariation{5};

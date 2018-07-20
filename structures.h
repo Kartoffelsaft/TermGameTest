@@ -89,6 +89,14 @@ public:
   {
     terrainloc = world2dto1d(x, y);
   }
+
+  void render(char appearance)
+  {
+    if(sizex() > x() > 0 && 0 < y() < sizey())
+    {
+      addobject(x(), y(), appearance);
+    }
+  }
 };
 
 class City : public Building
@@ -136,7 +144,7 @@ public:
 
 namespace structures
 {
-  static std::vector<Terrain> terrains((settings::worldgen::worldx + 1) * (settings::worldgen::worldy + 1));
+  static std::vector<Terrain> terrains((settings::worldgen::worldx) * (settings::worldgen::worldy) + 1);
   static std::vector<City> cities;
   static std::vector<Mine> mines;
   static std::vector<SteelPlant> steelplants;
