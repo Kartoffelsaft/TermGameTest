@@ -92,7 +92,7 @@ public:
 
   void render(char appearance)
   {
-    if(sizex() > x() > 0 && 0 < y() < sizey())
+    if((sizex() > x() && x() > 0) && (0 < y() && y() < sizey()))
     {
       addobject(x(), y(), appearance);
     }
