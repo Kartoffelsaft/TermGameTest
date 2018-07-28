@@ -1,12 +1,12 @@
 #include <bitset>
 #include "game.h"
 
-static std::bitset<8> gamestate{0b00001001};		/* starting from rightmost bit
+static std::bitset<8> gamestate{0b00011001};		/* starting from rightmost bit
 																								0: is game running
 																								1: menu state (00 = world, 01 = resources)
 																								2: menu state (10 = unsgnd, 11 = unsgnd)
 																								3: If an event has occurred this frame
-																								4: unassigned
+																								4: wether the cursor is on or not
 																								5: unassigned
 																								6: unassigned
 																								7: unassigned
@@ -71,4 +71,14 @@ bool isevent()
 void newevent()
 {
 	gamestate.set(3);
+}
+
+bool cursorpresent()
+{
+	return gamestate.test(4);
+}
+
+void togglecursor()
+{
+	gamestate.flip(4);
 }

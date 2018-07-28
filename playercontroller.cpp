@@ -5,10 +5,13 @@ static int playery{1};
 
 void doplayer()
 {
-  addobject(playerx, playery, 'X');
+  if(cursorpresent())
+  {
+    addobject(playerx, playery, 'X');
 
-  dofloordata(playerx, playery);
-  docitydata(playerx, playery);
+    dofloordata(playerx, playery);
+    docitydata(playerx, playery);
+  }
 }
 
 void doplayerinput()
@@ -19,26 +22,32 @@ void doplayerinput()
   {
     switch(inp)
     {
-      case 'w':
-        playery -= 1;
-        break;
-      case 's':
-        playery += 1;
-        break;
-      case 'a':
-        playerx -= 1;
-        break;
-      case 'd':
-        playerx += 1;
-        break;
-      case 'b':
-        buildcity(playerx, playery);
-        break;
-      case 'm':
-        buildmine(playerx, playery);
-        break;
-      case 'p':
-        buildsteelplant(playerx, playery);
+      if(cursorpresent())
+      {
+        case 'w':
+          playery -= 1;
+          break;
+        case 's':
+          playery += 1;
+          break;
+        case 'a':
+          playerx -= 1;
+          break;
+        case 'd':
+          playerx += 1;
+          break;
+        case 'b':
+          buildcity(playerx, playery);
+          break;
+        case 'm':
+          buildmine(playerx, playery);
+          break;
+        case 'p':
+          buildsteelplant(playerx, playery);
+          break;
+      }
+      case ' ':
+        togglecursor();
         break;
       case 'l':
         nextturn();

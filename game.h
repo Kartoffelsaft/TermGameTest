@@ -67,6 +67,9 @@ void newframe();				//initializes gamestate for a new frame
 bool isevent();					//returns whether an evant has occurred this frame
 void newevent();				//sets the current frame to an event frame (to make above function return true)
 
+bool cursorpresent();				//returns wether or not the cursor (or player) is on
+void togglecursor();					//toggles the return value of the above expression
+
 
 /* INPUT HANDLING */
 
