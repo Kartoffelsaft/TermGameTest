@@ -20,9 +20,9 @@ void doplayerinput()
 
   if(inp != 0)
   {
-    switch(inp)
+    if(cursorpresent())
     {
-      if(cursorpresent())
+      switch(inp)
       {
         case 'w':
           playery -= 1;
@@ -46,6 +46,9 @@ void doplayerinput()
           buildsteelplant(playerx, playery);
           break;
       }
+    }
+    switch(inp)
+    {
       case ' ':
         togglecursor();
         break;
