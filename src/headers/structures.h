@@ -16,6 +16,8 @@ public:
   {
     string type;
     switch (biome) //if anyone knows of a better way to do this, please tell me, because maintaining this whole biome thing is ... inconvinient to put it nicely
+                    
+                   //future me here. I should have used enums.
     {
       case 0b0000'0000:
         type = "ocean";
